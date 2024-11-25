@@ -1,0 +1,218 @@
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+
+
+body {
+  color: rgb(255 255 255 / 90%);
+  font-family: HackNerdFont, bold;
+  font-size: .9rem;
+  overflow: hidden;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  background: rgba(0, 0, 0, 15%);
+  height: 1.8rem;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  height: 100%;
+  padding: 4px 1.5vw;
+}
+
+.left,
+.center,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.center {
+  justify-self: center;
+}
+
+.right {
+  justify-self: end;
+}
+.date{
+  size: 1rem;
+}
+.logo,
+.binding-mode,
+.tiling-direction,
+.network,
+.memory,
+.cpu,
+.battery {
+  margin-right: 20px;
+}
+
+.workspaces {
+  display: flex;
+  align-items: center;
+}
+
+.workspace {
+  background: rgb(255 255 255 / 5%);
+  margin-right: 4px;
+  padding: 4px 8px;
+  color: rgb(255 255 255 / 90%);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+
+  &.displayed {
+    background: rgb(255 255 255 / 15%);
+  }
+
+  &.focused,
+  &:hover {
+    background: rgb(255 255 255 / 50%);
+  }
+}
+
+.binding-mode,
+.tiling-direction {
+  background: rgb(255 255 255 / 15%);
+  color: rgb(255 255 255 / 90%);
+  border-radius: 2px;
+  line-height: 1;
+  padding: 4px 8px;
+  border: 0;
+  cursor: pointer;
+}
+
+.binding-mode {
+  margin-right: 4px;
+}
+.date {
+  font-size: 1rem;
+  padding: 0 10px; /* add some horizontal padding */
+  margin: 0; /* reset vertical margin */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.date span:nth-child(2) {
+  margin-left: 10px;
+}
+.cpu .high-usage {
+  color: #900029 !important;
+}
+
+.battery {
+  position: relative;
+}
+.memory .high-usage {
+  color: #df3464 !important;
+  animation: flash 0.50s infinite !important; /* Faster updates for memory */
+}
+.battery .charging-icon {
+  position: absolute;
+  font-size: 7px;
+  left: -8px;
+  top: 3px;
+}
+
+i {
+  color: rgb(255 255 255 / 90%);
+  margin-right: 7px;
+}
+.devicon--archlinux {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cg fill='%231791cf'%3E%3Cpath fill-rule='evenodd' d='M61.113 4.886C55.82 17.79 52.63 26.23 46.738 38.75c3.614 3.804 8.047 8.242 15.246 13.25c-7.742-3.168-13.02-6.348-16.968-9.649c-7.54 15.645-19.352 37.934-43.325 80.77c18.844-10.817 33.45-17.485 47.059-20.031a34 34 0 0 1-.895-8.024l.024-.602c.297-12.003 6.578-21.238 14.016-20.609c7.437.625 13.222 10.871 12.921 22.875c-.054 2.262-.312 4.434-.761 6.45c13.465 2.62 27.914 9.273 46.5 19.94c-3.664-6.706-6.934-12.757-10.059-18.519c-4.922-3.793-10.055-8.726-20.523-14.074c7.195 1.863 12.347 4.008 16.363 6.406C74.578 38.121 72.004 30.308 61.113 4.886m0 0'/%3E%3Cpath d='M121.14 112.57v-3.242h-1.214v-.434h2.93v.434h-1.223v3.242zm2.223 0v-3.676h.735l.875 2.602c.082.242.14.426.175.543q.065-.2.2-.586l.882-2.559h.66v3.676h-.472v-3.078l-1.074 3.078h-.442l-1.066-3.129v3.129z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.devicon--windows8 {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cg fill='none'%3E%3Cg clip-path='url(%23skillIconsWindowsDark0)'%3E%3Cpath fill='%23242938' d='M196 0H60C26.863 0 0 26.863 0 60v136c0 33.137 26.863 60 60 60h136c33.137 0 60-26.863 60-60V60c0-33.137-26.863-60-60-60'/%3E%3Cpath fill='%2300adef' d='m40 65.663l70.968-9.665l.032 68.455l-70.934.404zm70.935 66.677l.055 68.515l-70.934-9.753l-.004-59.221zm8.602-77.607L213.636 41v82.582l-94.099.748zm94.121 78.251l-.022 82.211l-94.099-13.281l-.131-69.083z'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='skillIconsWindowsDark0'%3E%3Cpath fill='%23fff' d='M0 0h256v256H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/g%3E%3C/svg%3E");
+}
+.logo-container {
+  position: relative;
+  display: inline-block;
+}
+
+.logo {
+  display: inline-block;
+  transition: transform 0.5s, opacity 0.5s;
+  transform-origin: center;
+}
+
+.devicon--archlinux {
+  z-index: 2; /* Starts on top */
+  transform: rotate(0deg); /* Initial rotation */
+  opacity: 1; /* Fully visible */
+}
+
+
+.devicon--windows8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Starts behind devicon--archlinux */
+  transform: rotate(0deg); /* Initial rotation */
+  opacity: 0; /* Hidden by default */
+  pointer-events: none; /* No interaction until visible */
+  transition: transform 0.5s, opacity 0.5s 0.5s; /* Delay opacity transition */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Cpath fill='%2300adef' d='m126 1.637l-67 9.834v49.831l67-.534zM1.647 66.709l.003 42.404l50.791 6.983l-.04-49.057zm56.82.68l.094 49.465l67.376 9.509l.016-58.863zM1.61 19.297l.047 42.383l50.791-.289l-.023-49.016z'/%3E%3C/svg%3E");
+}
+.logo-container:hover .devicon--archlinux {
+  transform: rotate(360deg); /* Spins fully */
+  opacity: 0; /* Fades out */
+}
+
+.logo-container:hover .devicon--windows8 {
+  transform: rotate(360deg); /* Spins fully */
+  opacity: 1; /* Fades in */
+  pointer-events: auto; /* Becomes interactable */
+}
+
+.logo-container:hover .devicon--archlinux,
+.logo-container:hover .devicon--windows8 {
+  transition-delay: 0s; /* Ensures animations run simultaneously */
+}
+
+.logo-container:not(:hover) .devicon--archlinux {
+  transform: rotate(-360deg); /* Spins back to original position */
+  opacity: 1; /* Fades back in */
+  transition: transform 0.5s, opacity 0.5s; /* Smooth return */
+}
+
+.logo-container:not(:hover) .devicon--windows8 {
+  opacity: 0; /* Fades out */
+  pointer-events: none; /* No interaction */
+  transition: opacity 0.5s; /* Smooth fade out */
+}
+.uptime {
+  color: white;
+}
+.battery .uptime {
+  margin-left: 5px;
+}
+.battery-warning {
+  color: #ffa500; /* Orange color for warning */
+}
+
+.battery-critical {
+  color: #ff0000; /* Red color for critical */
+}
+
+.battery-warning .charging-icon,
+.battery-critical .charging-icon {
+  color: inherit; /* Make the charging icon match the battery text color */
+}

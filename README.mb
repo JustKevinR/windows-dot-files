@@ -1,0 +1,138 @@
+# README
+
+## Table of Contents
+1. [Setting Up WSL2](#setting-up-wsl2)
+2. [Setting Up Arch Linux on WSL2](#setting-up-arch-linux-on-wsl2)
+3. [Setting Up WezTerm](#setting-up-wezterm)
+4. [Installing Nerd Fonts](#installing-nerd-fonts)
+
+---
+
+## Setting Up WSL2
+
+WSL2 allows you to run a Linux environment natively on Windows. Follow these steps to set it up:
+
+1. **Enable WSL2**:
+   - Open Command Prompt and run:  
+     ```bash
+     OptionalFeatures.exe
+     ```
+   - Enable the "Windows Subsystem for Linux" option.
+   - Note: Windows 10 must be version 2004 or higher; Windows 11 is recommended.
+
+2. **Install WSL2**:
+   - Open PowerShell (as Administrator) and run:  
+     ```bash
+     wsl --install
+     ```
+   - This installs the default Linux distro (Ubuntu). Alternatively, list other available distributions with:  
+     ```bash
+     wsl --list --online
+     ```
+   - Install a specific distribution by name, e.g.:  
+     ```bash
+     wsl --install -d Debian
+     ```
+
+3. **Complete Installation**:
+   - Launch the installed Linux distro (e.g., search for "Ubuntu" in the Start menu).
+   - Follow the prompts to create a Unix user account.
+
+---
+
+## Setting Up Arch Linux on WSL2
+
+To set up Arch Linux on WSL2:
+
+1. **Download the Arch WSL Package**:
+   - Go to the Arch WSL GitHub repository [releases page](https://github.com/yuk7/ArchWSL/releases).
+   - Download the `.appx` file and its certificate.
+
+2. **Install the Certificate**:
+   - Double-click the certificate file.
+   - Choose **Local Machine** store and place it in **Trusted Root Certificate Authorities**.
+
+3. **Install Arch**:
+   - Run the `.appx` file to install Arch Linux.
+
+4. **Configure Arch**:
+   - Launch Arch from the Start menu.
+   - Set the root password:  
+     ```bash
+     passwd
+     ```
+   - Create a new user and add it to the sudoers file:  
+     ```bash
+     echo "%wheel ALL=(ALL) ALL" > /etc/sudoers.d/wheel
+     ```
+     Edit the sudoers file:  
+     ```useradd -m -G wheel -s /bin/bash {username}
+     ```
+    passwd {username}
+     ```
+
+5. **Set Default User**:
+   - Open PowerShell (as Administrator) and run:  
+     ```bash
+     wsl -d Arch config --default-user {your_username}
+     ```
+   - Restart your system or WSL manager.
+
+6. **Initialize Pacman**:
+   - Initialize the Pacman keyring:  
+     ```bash
+     pacman-key --init
+     pacman-key --populate archlinux
+     ```
+   - Update the system:  
+     ```bash
+     pacman -Syu
+     ```
+
+---
+
+## Setting Up WezTerm
+
+WezTerm is a powerful terminal emulator. Here's how to set it up:
+
+1. **Download and Install**:
+   - Download WezTerm from [the official website](https://wezfurlong.org/wezterm/index.html).
+   - Run the installer and follow the instructions.
+
+2. **Set Environment Variables**:
+   - Add the following environment variables:
+     - `HOME` → `C:\Users\your_username`
+     - `XDG_CONFIG_HOME` → `C:\Users\your_username\.config`
+   - Ensure the directories exist.
+
+3. **Create WezTerm Config**:
+   - Navigate to:  
+     ```bash
+     %XDG_CONFIG_HOME%\wezterm
+     ```
+   - Create a `wezterm.lua` file and copy the custom configuration:
+     [WezTerm Config](wezterm.lua) (replace with the actual link to your config).
+
+---
+
+## Installing Nerd Fonts
+
+Nerd Fonts are required for enhanced terminal visuals.
+
+1. **Download Fonts**:
+   - Visit the [Nerd Fonts website](https://www.nerdfonts.com/font-downloads) and download the desired font.
+
+2. **Install Fonts**:
+   - Extract the font files.
+   - Right-click and select **Install** or drag them into the Font Settings in Windows.
+
+---
+
+## Additional Notes
+
+- **Visual Studio Code WSL Extension**:Install the [WSL Extension for VSCode](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl) to enable seamless integration with your WSL environment. This extension allows quick file system access and Linux shell integration within VSCode.
+- **Wezterm Color Schemes**: Explore hundreds of schemes [here](https://wezfurlong.org/wezterm/colorschemes/index.html).
+- **Wezterm Quick Start Guide**: [Official Guide](https://wezfurlong.org/wezterm/quickstart.html).
+- **Customizing Fonts**: [NerdFonts](https://www.nerdfonts.com).
+
+---
